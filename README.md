@@ -1,4 +1,4 @@
-# # MDIExample
+## MDIExample
 
 Este proyecto, está enfocado al uso de los **Multiple-Document Interface** también conocidos como **MDI** incorporando la conexión a bases de datos MySQL. Se repasarán contenidos como: 
 
