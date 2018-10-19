@@ -5,6 +5,11 @@
  */
 package Formularios;
 
+import Clases.Conexion;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author LAB1_PC34
@@ -39,10 +44,20 @@ public class Login extends javax.swing.JFrame {
         lblUsuario.setText("Nombre de usuario:");
 
         btnIngresar.setText("Ingresar");
+        btnIngresar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnIngresarActionPerformed(evt);
+            }
+        });
 
         lblClave.setText("Clave de acceso:");
 
         btnSalir.setText("Salir");
+        btnSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalirActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -57,9 +72,9 @@ public class Login extends javax.swing.JFrame {
                             .addComponent(lblClave, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(lblUsuario))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtUsuario)
-                            .addComponent(txtClave, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(txtClave, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -83,6 +98,39 @@ public class Login extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_btnSalirActionPerformed
+
+    private void btnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarActionPerformed
+        String usuario = txtUsuario.getText();
+        String clave = new String(txtClave.getPassword());
+        if(usuario.length() == 0 || clave.length() == 0){
+            JOptionPane.showMessageDialog(rootPane, "Ingrese el nombre de usuario y la clave obligatoriamente");
+            return;
+        }else{
+            Conexion cn = new Conexion();
+            String[] campos = {"*"};
+            String condicion = "usuario = '"+usuario+"' AND clave = '"+clave+"'";
+            ResultSet resultado = cn.consulta("usuarios", campos, condicion);
+            int filas = 0; 
+            try{
+                resultado.last();
+                filas = resultado.getRow();
+            }catch(SQLException ex){
+                
+            }
+            if(filas == 0){
+                JOptionPane.showMessageDialog(rootPane, "Nombre de usuario / clave incorrecto(s)");
+            }else{
+                JOptionPane.showMessageDialog(rootPane, "Acceso permitido");
+            }
+        }
+        
+        
+        
+    }//GEN-LAST:event_btnIngresarActionPerformed
 
     /**
      * @param args the command line arguments
