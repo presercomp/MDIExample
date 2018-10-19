@@ -34,6 +34,7 @@ public class Principal extends javax.swing.JFrame {
         jSeparator1 = new javax.swing.JPopupMenu.Separator();
         Quit = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
+        menuUsuariosAdmin = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -71,7 +72,17 @@ public class Principal extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu1);
 
-        jMenu2.setText("Edición");
+        jMenu2.setText("Usuarios");
+
+        menuUsuariosAdmin.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_U, java.awt.event.InputEvent.CTRL_MASK));
+        menuUsuariosAdmin.setText("Administrar");
+        menuUsuariosAdmin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuUsuariosAdminActionPerformed(evt);
+            }
+        });
+        jMenu2.add(menuUsuariosAdmin);
+
         jMenuBar1.add(jMenu2);
 
         setJMenuBar(jMenuBar1);
@@ -91,14 +102,18 @@ public class Principal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void OpenChildActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OpenChildActionPerformed
-        Hijo h = new Hijo();
-        contenedor.add(h);
-        h.setVisible(true);
+        
     }//GEN-LAST:event_OpenChildActionPerformed
 
     private void QuitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_QuitActionPerformed
         System.exit(0);
     }//GEN-LAST:event_QuitActionPerformed
+
+    private void menuUsuariosAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuUsuariosAdminActionPerformed
+        UsuariosAdmin ua = new UsuariosAdmin();
+        this.contenedor.add(ua);
+        ua.setVisible(true);
+    }//GEN-LAST:event_menuUsuariosAdminActionPerformed
 
     /**
      * @param args the command line arguments
@@ -143,5 +158,6 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPopupMenu.Separator jSeparator1;
+    private javax.swing.JMenuItem menuUsuariosAdmin;
     // End of variables declaration//GEN-END:variables
 }

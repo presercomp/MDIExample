@@ -111,7 +111,7 @@ public class Login extends javax.swing.JFrame {
             return;
         }else{
             Conexion cn = new Conexion();
-            String[] campos = {"*"};
+            String[] campos = {"usuario", "clave"};
             String condicion = "usuario = '"+usuario+"' AND clave = '"+clave+"'";
             ResultSet resultado = cn.consulta("usuarios", campos, condicion);
             int filas = 0; 
@@ -124,7 +124,10 @@ public class Login extends javax.swing.JFrame {
             if(filas == 0){
                 JOptionPane.showMessageDialog(rootPane, "Nombre de usuario / clave incorrecto(s)");
             }else{
-                JOptionPane.showMessageDialog(rootPane, "Acceso permitido");
+                //JOptionPane.showMessageDialog(rootPane, "Acceso permitido");
+                Principal pr = new Principal();
+                pr.setVisible(true);
+                this.dispose();
             }
         }
         
