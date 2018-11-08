@@ -1,6 +1,8 @@
 
 package Clases;
 import java.sql.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 public class Conexion {
     private Connection _conn;
@@ -45,5 +47,16 @@ public class Conexion {
             JOptionPane.showMessageDialog(null, "Se ha generado un error:\n"+ex.getMessage());
         }
         return resultado;
+    }
+    
+    public int ejecutar(String comandoSQL){
+        int lastID = 0;
+        try {
+            lastID = this._stmt.executeUpdate(comandoSQL, Statement.RETURN_GENERATED_KEYS);
+        } catch (SQLException ex) {
+            Logger.getLogger(Conexion.class.getName()).log(Level.SEVERE, null, ex);            
+        }
+        
+        return lastID;
     }
 }

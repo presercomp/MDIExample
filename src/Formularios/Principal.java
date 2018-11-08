@@ -5,6 +5,8 @@
  */
 package Formularios;
 
+import javax.swing.JFrame;
+
 /**
  *
  * @author LAB1_PC34
@@ -15,6 +17,7 @@ public class Principal extends javax.swing.JFrame {
      * Creates new form Principal
      */
     public Principal() {
+        this.setExtendedState(MAXIMIZED_BOTH);
         initComponents();
     }
 
@@ -110,8 +113,8 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_QuitActionPerformed
 
     private void menuUsuariosAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuUsuariosAdminActionPerformed
-        UsuariosAdmin ua = new UsuariosAdmin();
-        this.contenedor.add(ua);
+        UsuariosAdmin ua = new UsuariosAdmin(this);
+        this.contenedor.add(ua);            
         ua.setVisible(true);
     }//GEN-LAST:event_menuUsuariosAdminActionPerformed
 
@@ -153,7 +156,7 @@ public class Principal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem OpenChild;
     private javax.swing.JMenuItem Quit;
-    private javax.swing.JDesktopPane contenedor;
+    public javax.swing.JDesktopPane contenedor;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
