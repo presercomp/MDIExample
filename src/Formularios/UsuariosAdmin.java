@@ -144,7 +144,12 @@ public class UsuariosAdmin extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnAgregarActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-        // TODO add your handling code here:
+        String pregunta = "¿Está seguro/a de querer borrar este usuario?";
+        int respuesta = JOptionPane.showConfirmDialog(rootPane, pregunta);      
+        if(respuesta == 0){
+            this.usuario.eliminar();
+            completarUsuarios();
+        }
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed

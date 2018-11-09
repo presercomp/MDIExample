@@ -54,4 +54,9 @@ public class Usuarios {
         return this._cn.ejecutar(query);       
     }
     
+    public int eliminar(){
+        String query = "DELETE FROM usuarios WHERE idUsuario = "+this._idUsuario;
+        return this._cn.ejecutar(query);
+    }
+    
 }
