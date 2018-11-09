@@ -114,6 +114,7 @@ public class Principal extends javax.swing.JFrame {
 
     private void menuUsuariosAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuUsuariosAdminActionPerformed
         UsuariosAdmin ua = new UsuariosAdmin(this);
+        ua.setFrameIcon(null);
         this.contenedor.add(ua);            
         ua.setVisible(true);
     }//GEN-LAST:event_menuUsuariosAdminActionPerformed

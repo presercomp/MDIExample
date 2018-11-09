@@ -50,7 +50,7 @@ public class Usuarios {
     }
     
     public int editar(){
-        String query = "update from usuarios set usuario = '"+this._usuario+"', clave='"+this._clave+"' where idUsuario = "+this._idUsuario+")";
+        String query = "update usuarios set usuario = '"+this._usuario+"', clave='"+this._clave+"' where idUsuario = "+this._idUsuario+";";        
         return this._cn.ejecutar(query);       
     }
     

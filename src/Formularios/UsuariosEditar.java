@@ -23,7 +23,7 @@ public class UsuariosEditar extends javax.swing.JInternalFrame {
         initComponents();
         this.principal = x;
         this.usuario = u;
-        this.txtUsuario.setText(u.getUsuario());
+        this.txtUsuario.setText(u.getUsuario());        
     }
 
     /**
@@ -138,7 +138,7 @@ public class UsuariosEditar extends javax.swing.JInternalFrame {
         
         if(errores.length() > 0){
             JOptionPane.showMessageDialog(this, "Corrija los siguientes errores: \n"+errores);
-        }else{           
+        }else{            
             usuario.setUsuario(txtUsuario.getText());
             usuario.setClave(new String(txtClave.getPassword()));
             int resultado = usuario.editar();

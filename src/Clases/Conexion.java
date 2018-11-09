@@ -41,7 +41,6 @@ public class Conexion {
         String query = "SELECT "+listaCampos+" FROM "+tabla;
         query += filtro.length() > 0 ? " WHERE "+filtro : "";
         try{
-            System.out.print(query);
             resultado = this._stmt.executeQuery(query);
         }catch(SQLException ex){
             JOptionPane.showMessageDialog(null, "Se ha generado un error:\n"+ex.getMessage());

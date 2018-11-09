@@ -137,6 +137,7 @@ public class UsuariosAdmin extends javax.swing.JInternalFrame {
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
         UsuariosNuevo un = new UsuariosNuevo(this.principal);
+        un.setFrameIcon(null);
         this.principal.contenedor.add(un);            
         un.setVisible(true);
         this.dispose();
@@ -148,6 +149,7 @@ public class UsuariosAdmin extends javax.swing.JInternalFrame {
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
         UsuariosEditar ue = new UsuariosEditar(this.principal, this.usuario);
+        ue.setFrameIcon(null);
         this.principal.contenedor.add(ue);            
         ue.setVisible(true);
         this.dispose();
